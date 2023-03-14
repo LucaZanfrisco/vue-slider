@@ -35,18 +35,32 @@ createApp({
       ],
     };
   },
-  methods:{
-    prevImg(){
-        this.tabindex--;
-        if(this.tabindex < 0){
-            this.tabindex = this.slides.length - 1;
-        }
+  methods: {
+    prevImg() {
+      this.tabindex--;
+      if (this.tabindex < 0) {
+        this.tabindex = this.slides.length - 1;
+      }
     },
-    nextImg(){
-        this.tabindex++;
-        if(this.tabindex > this.slides.length - 1){
-            this.tabindex = 0;
-        }
+    nextImg() {
+      this.tabindex++;
+      if (this.tabindex > this.slides.length - 1) {
+        this.tabindex = 0;
+      }
+    },
+    thumbShow(index, event) {
+      this.tabindex = index;
+    },
+    autoplay() {
+        play = setInterval(() => {
+        this.nextImg();
+      }, 3000);
+    },
+    stopAutoPlay() {
+        clearInterval(play);
     }
-  }
+  },
+  mounted() { 
+    this.autoplay();
+  },
 }).mount("#app");
