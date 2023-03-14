@@ -52,12 +52,12 @@ createApp({
       this.tabindex = index;
     },
     autoplay() {
-        play = setInterval(() => {
+        setInterval(() => {
         this.nextImg();
       }, 3000);
     },
     stopAutoPlay() {
-        clearInterval(play);
+        clearInterval();
     }
   },
   mounted() { 
