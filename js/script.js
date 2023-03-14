@@ -60,10 +60,11 @@ createApp({
         this.nextImg();
       }, 3000);
     },
+    // Evento che blocca l'autoplay quando si mette il mouse sullo slider 
     stopAutoPlay() {
       clearInterval(this.play);
     },
-    // Funzione che dovrebbe bloccare lo scorrimento al passaggio del mouse (non funziona)
+    
   },
   mounted() {
     this.autoplay();
