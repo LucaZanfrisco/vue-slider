@@ -36,31 +36,36 @@ createApp({
     };
   },
   methods: {
+    // Evento che mostra l'immagine precedente
     prevImg() {
       this.tabindex--;
       if (this.tabindex < 0) {
         this.tabindex = this.slides.length - 1;
       }
     },
+    // Evento che mostra l'immagine successiva
     nextImg() {
       this.tabindex++;
       if (this.tabindex > this.slides.length - 1) {
         this.tabindex = 0;
       }
     },
+    // Evento che mostra sul click della thumbnail l'immagine cliccata
     thumbShow(index, event) {
       this.tabindex = index;
     },
+    // Scorrimento automatico delle immagini ongi 3 secondi
     autoplay() {
-        setInterval(() => {
+      this.play = setInterval(() => {
         this.nextImg();
       }, 3000);
     },
     stopAutoPlay() {
-        clearInterval();
-    }
+      clearInterval(this.play);
+    },
+    // Funzione che dovrebbe bloccare lo scorrimento al passaggio del mouse (non funziona)
   },
-  mounted() { 
+  mounted() {
     this.autoplay();
   },
 }).mount("#app");
